@@ -1,0 +1,3 @@
+Build a container image on docker
+send to github
+Send to DockerHub

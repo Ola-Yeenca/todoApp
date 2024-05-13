@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Todo App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <h2>Tasks</h2>
+        <ul>
+            {% for task in tasks %}
+                <li class="{% if task.completed %}completed-task{% endif %}">
+                    {{ loop.index }}: {{ task.description }}
+                    <form action="{{ url_for('task_status', task_id=loop.index0) }}" method="POST">
+                        <button type="submit">{% if task.completed %}Undo{% else %}Complete{% endif %}</button>
+                    </form>
+                    <form action="{{ url_for('delete_task', task_id=loop.index0) }}" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Add Task</h2>
+        <form action="{{ url_for('add_task') }}" method="POST">
+            <input type="text" name="task" placeholder="Enter task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Delete All Task</h2>
+        <form action="{{ url_for('delete_all') }}" method="POST">
+            <button type="submit">Delete All Task</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='javascript/scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: $primary-color;
+}
+
+.task {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+.form-container input[type="text"] {
+    width: 70%;
+    padding: 10px;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-container button:hover {
+    background-color: darken($primary-color, 10%);
+}
